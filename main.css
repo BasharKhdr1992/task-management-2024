@@ -38,7 +38,7 @@
     font-size: 16px;
     box-shadow: 1px 1px 2px inset;
 }
-.task-text-error {
+.input-error {
     border: 2px solid red;
     box-shadow: none;
 }
@@ -88,6 +88,14 @@
     padding: 8px;
     font-size: 16px;
     margin: 16px 0px;
+}
+
+.incomplete {
+    border-left: 5px solid red;
+}
+
+.complete {
+    background-color: lightgreen;
 }
 
 .task-deadline {

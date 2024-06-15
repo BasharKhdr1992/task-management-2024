@@ -27,10 +27,11 @@ function getUpcomingTasks() {
         let dateArray = getCurrentDayMonthYear(); // [day, month, year]
         const upcomingTasks = []
         for (let task of tasks) {
-            let day = +task.deadline.substring(0, 2);
-            let month = task.deadline.substring(2, 5);
-            let year = task.deadline.substring(7);
+            const dateParts = task.deadline.split(' ');
 
+            let day = +dateParts[0];
+            let month = dateParts[1].replace(',', '');
+            let year = dateParts[2];
             if (month !== monthsDict[dateArray[1]] || year !== dateArray[2].toString().substring(2)) continue;
 
             if (Math.abs(dateArray[0] - day) <= 7) upcomingTasks.push(task)
@@ -111,7 +112,7 @@ function setMinDate() {
     delete minDate;
 }
 
-function clearTasks (callback) {
+function clearTasks () {
     document.getElementById("tasks-list").innerHTML = "";
     document.getElementById('upcoming-list').innerHTML = "";
 }
